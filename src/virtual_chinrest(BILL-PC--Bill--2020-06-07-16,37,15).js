@@ -41,7 +41,7 @@ function configureBlindSpot() {
 
 };
 
-//This has been move to the script of the experiment because it doesn't work if
+//This have been move to the script of the experiment because it doesn't work if
 //if it is here
 // $( function() {
 //     $( "#slider" ).slider({value:"50"});
@@ -118,13 +118,12 @@ function recordPosition(event, angle=13.5) {
         if (counter <= 0) {
 
             ball.stop();
-            //After the recording finish, I remover the function for the keydown
+            //After the recording finish, I remover the function
             $(document).off('keydown', recordPosition);
             //This is a callback function that I defined in the experiment to go to 
             //next page
             recordComplete();
 
-            // I do it in another way
             // Disable space key
             // $('html').bind('keydown', function(e)
             // {

@@ -41,7 +41,7 @@ function configureBlindSpot() {
 
 };
 
-//This has been move to the script of the experiment because it doesn't work if
+//This have been move to the script of the experiment because it doesn't work if
 //if it is here
 // $( function() {
 //     $( "#slider" ).slider({value:"50"});
@@ -62,8 +62,7 @@ function configureBlindSpot() {
 
 //=============================
 //Ball Animation
-// This function is moved to the script of the experiment because I use a independent 
-//variable to pass on the card width
+
 // function drawBall(pos=180){
 //     // pos: define where the fixation square should be.
 //     var mySVG = SVG("svgDiv");
@@ -118,18 +117,12 @@ function recordPosition(event, angle=13.5) {
         if (counter <= 0) {
 
             ball.stop();
-            //After the recording finish, I remover the function for the keydown
-            $(document).off('keydown', recordPosition);
-            //This is a callback function that I defined in the experiment to go to 
-            //next page
-            recordComplete();
 
-            // I do it in another way
             // Disable space key
-            // $('html').bind('keydown', function(e)
-            // {
-            //    if (e.keyCode == 32) {return false;}
-            // });   
+            $('html').bind('keydown', function(e)
+            {
+               if (e.keyCode == 32) {return false;}
+            });   
 
             // You can then DO SOMETHING HERE TO PROCEED TO YOUR NEXT STEPS OF THE EXPERIMENT. For example, add a button to go to the next page.        
             return;
@@ -141,18 +134,17 @@ function recordPosition(event, angle=13.5) {
 }
 
 //===================
-// labjs has its own fullcreen mode, no nedd for this
-// //Helper Functions
-// function fullScreen(){
-//     doc = document.documentElement;
-//     if(doc.requestFullScreen) {
-//         doc.requestFullScreen();
-//     } else if(doc.mozRequestFullScreen) {
-//         doc.mozRequestFullScreen();
-//     } else if(doc.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)) {
-//         doc.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-//     }
-// };
+//Helper Functions
+function fullScreen(){
+    doc = document.documentElement;
+    if(doc.requestFullScreen) {
+        doc.requestFullScreen();
+    } else if(doc.mozRequestFullScreen) {
+        doc.mozRequestFullScreen();
+    } else if(doc.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)) {
+        doc.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+};
 
 function registerClick(){
     data["fullScreenClicked"] = true;
